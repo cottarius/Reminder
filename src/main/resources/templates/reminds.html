@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Page of Reader</title>
+</head>
+<body>
+
+<h2 style="display:inline" th:text="${user.getName()}"></h2>
+
+<br>
+<br>
+
+<table>
+    <caption><b>Полный список напоминаний</b></caption>
+    <tr>
+        <td>Id</td>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Time</th>
+    </tr>
+    <tr th:each="remind: ${reminds}">
+        <td th:text="${remind.getId()}"></td>
+        <td th:text="${remind.getTitle()}"></td>
+        <td th:text="${remind.getDescription()}"></td>
+        <td th:text="${remind.getRemind()}"></td>
+    </tr>
+</table>
+
+<style>
+    table {
+        border: 3px solid black;
+        border-collapse: collapse;
+        width: 50%;
+    }
+
+    td {
+        border: 3px solid black;
+    }
+
+    th {
+        border: 3px solid black;
+    }
+
+</style>
+
+</body>
+</html>

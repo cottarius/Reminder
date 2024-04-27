@@ -35,3 +35,4 @@ databaseChangeLog:
                     foreignKeyName: user_reminder_fk
                     referencedTableName: users
                     referencedColumnNames: id
+                    deleteCascade: true

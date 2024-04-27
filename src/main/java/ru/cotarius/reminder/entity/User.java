@@ -2,11 +2,16 @@ package ru.cotarius.reminder.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import java.util.Collection;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
 @Data
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,5 +24,16 @@ public class User {
     private String email;
 
     @Column(name = "telegram_id")
-    private String telegramId;
+    private int telegramId;
+
+    @Column(name = "username")
+    private String username;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "role")
+    private String role;
+
+
 }
