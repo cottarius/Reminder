@@ -17,7 +17,7 @@ public class Reminder {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description")git remote add origin https://github.com/cottarius/reminder.git
     private String description;
 
     @Column(name = "remind")
