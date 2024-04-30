@@ -8,6 +8,10 @@ spring:
     username: postgres
     password: postgres
 
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
 #server:
 #  tomcat:
 #    relaxed-path-chars: \

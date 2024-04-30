@@ -9,7 +9,7 @@
 <div align="center">
     <h2>Edit Remind</h2>
     <!--    <form action="#" th:action="@{/save}" th:object="${reminder}" method="post">-->
-    <form action="#" th:action="@{/edit/{remindId}(remindId=${reminder.id})}" th:object="${reminder}" method="post">
+    <form th:action="@{/edit/{remindId}(remindId=${reminder.id})}" th:object="${reminder}" th:method="put">
         <p>Id: <label>
             <td th:text="${reminder.getId()}"></td>
         </label></p>
