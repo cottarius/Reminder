@@ -22,7 +22,7 @@ public class ReminderController {
     private final ReminderService reminderService;
     private final UserService userService;
 
-    @DeleteMapping("/delete/{id}")
+    @RequestMapping(value = "/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
     @Transactional
     public String deleteReminder(@PathVariable long id, Model model) {
         Reminder reminder = reminderService.findById(id);
