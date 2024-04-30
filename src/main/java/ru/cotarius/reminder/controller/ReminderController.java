@@ -1,5 +1,6 @@
 package ru.cotarius.reminder.controller;
 
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,14 @@ import java.util.List;
 public class ReminderController {
     private final ReminderService reminderService;
     private final UserService userService;
+
+    @DeleteMapping("/delete/{id}")
+    @Transactional
+    public String deleteReminder(@PathVariable long id, Model model) {
+        Reminder reminder = reminderService.findById(id);
+        reminderService.delete(reminder);
+        return "redirect:/index";
+    }
 
     @GetMapping("/index")
     public String getReminds(Principal principal, Model model) {

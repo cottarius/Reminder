@@ -26,7 +26,6 @@ public class ReminderService {
     }
 
     public void update(long id, Reminder reminder) {
-        //TODO: сделана заглушка
         Reminder myReminder = reminderRepository.findById(id);
         myReminder.setTitle(reminder.getTitle());
         myReminder.setDescription(reminder.getDescription());
