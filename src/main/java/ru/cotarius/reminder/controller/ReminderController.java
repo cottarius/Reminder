@@ -45,14 +45,14 @@ public class ReminderController {
         return "edit-remind";
     }
 
-    @PutMapping("/update/{id}")
-    public String updateReminder(@PathVariable long id, Reminder reminder, BindingResult bindingResult){
+    @PutMapping("/edit/{id}")
+    public String updateReminder(@PathVariable long id, @ModelAttribute Reminder reminder, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {
             reminder.setId(id);
             return "edit-remind";
         }
 
-        reminderService.save(reminder);
+        reminderService.update(id, reminder);
         return "redirect:/index";
     }
 
@@ -66,7 +66,7 @@ public class ReminderController {
     public String saveRemind(@ModelAttribute("reminder") Reminder reminder, Principal principal) {
         User user = userService.findByUsername(principal.getName());
         reminder.setUser(user);
-        reminderService.update(reminder);
+        reminderService.save(reminder);
         return "redirect:/index";
     }
 

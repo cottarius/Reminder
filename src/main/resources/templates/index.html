@@ -34,9 +34,8 @@
             <td th:text="${remind.getDescription()}"></td>
             <td th:text="${remind.getRemind()}"></td>
             <td>
-                <a href="/edit/{id} + ${remind.id}">Edit</a>
-
-                <a href="/delete?id=${remind.id}">Delete</a>
+                <a th:href="@{/edit/{remindId}(remindId=${remind.id})}">Edit</a>
+                <a th:href="@{/delete/{remindId}(remindId=${remind.id})}">Delete</a>
             </td>
         </tr>
 

@@ -25,9 +25,13 @@ public class ReminderService {
         reminderRepository.delete(reminder);
     }
 
-    public Reminder update(Reminder reminder) {
+    public void update(long id, Reminder reminder) {
         //TODO: сделана заглушка
-        return reminderRepository.save(reminder);
+        Reminder myReminder = reminderRepository.findById(id);
+        myReminder.setTitle(reminder.getTitle());
+        myReminder.setDescription(reminder.getDescription());
+        myReminder.setRemind(reminder.getRemind());
+        reminderRepository.save(myReminder);
     }
 
     public Reminder findByTitle(String title) {
