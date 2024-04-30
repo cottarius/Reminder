@@ -7,3 +7,8 @@ spring:
     url: jdbc:postgresql://localhost:5432/reminder_db
     username: postgres
     password: postgres
+
+#server:
+#  tomcat:
+#    relaxed-path-chars: \
+#    relaxed-query-chars: \

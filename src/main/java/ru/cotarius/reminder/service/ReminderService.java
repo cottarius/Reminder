@@ -42,6 +42,10 @@ public class ReminderService {
         return reminderRepository.findAll();
     }
 
+    public Reminder findById(Long id) {
+        return reminderRepository.findById(id).orElse(null);
+    }
+
 //    public Reminder findByDate(LocalDate date) {
 //        return reminderRepository.findReminderByDate(date);
 //    }

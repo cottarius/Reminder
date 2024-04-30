@@ -44,7 +44,7 @@ public class SecurityConfig {
 //                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .defaultSuccessUrl("/remind", true)
+                        .defaultSuccessUrl("/index", true)
                         .permitAll())
                 .logout((logout) -> logout
                         .logoutUrl("/logout")
