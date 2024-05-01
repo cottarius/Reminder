@@ -24,7 +24,7 @@ public class User{
     private String email;
 
     @Column(name = "telegram_id")
-    private int telegramId;
+    private long telegramId;
 
     @Column(name = "username")
     private String username;
@@ -32,8 +32,10 @@ public class User{
     @Column(name = "password")
     private String password;
 
+//    @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private String role;
+//    private Role role;
 
 
 }

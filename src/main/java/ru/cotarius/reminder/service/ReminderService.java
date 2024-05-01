@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.cotarius.reminder.entity.Reminder;
 import ru.cotarius.reminder.repository.ReminderRepository;
+import ru.cotarius.reminder.telegram.TelegramSender;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
 public class ReminderService {
 
     private final ReminderRepository reminderRepository;
+    private final TelegramSender telegramSender;
 
     public List<Reminder> findByUserId(Long userId) {
         return reminderRepository.findByUserId(userId);
@@ -47,6 +49,10 @@ public class ReminderService {
 
     public Reminder findById(Long id) {
         return reminderRepository.findById(id).orElse(null);
+    }
+
+    public void sendTelegramMessage(Long userId, Reminder reminder) {
+
     }
 
 //    public Reminder findByDate(LocalDate date) {

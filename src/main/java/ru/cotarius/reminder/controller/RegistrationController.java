@@ -27,7 +27,7 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String registerUser(@ModelAttribute("user") User user) {
         System.out.println(user);
-        user.setRole(Role.USER);
+        user.setRole("user");
         userService.saveUser(user);
 
         return "redirect:/";
