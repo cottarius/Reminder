@@ -1,6 +1,7 @@
 package ru.cotarius.reminder.telegram;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.stereotype.Component;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -11,12 +12,13 @@ import java.net.ProtocolException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+@Component
 public class TelegramSender {
     private final String tgToken = "5982691328:AAFalCNB5LRCPDU-nRxL_-RGxK3tnl5Sz3o";
     private int clientTelegramId = 1212558248;
     private final String urlToken = "https://api.telegram.org/bot"+tgToken+"/sendMessage";
 
-    public void sendMessage(int chatId, String message) throws IOException {
+    public void sendMessage(long chatId, String message) throws IOException {
         HttpURLConnection con = null;
         String urlParameters = "chat_id="+chatId+"&text="+message;
         byte[] postData = urlParameters.getBytes(StandardCharsets.UTF_8);
