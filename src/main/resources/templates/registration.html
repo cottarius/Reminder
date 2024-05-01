@@ -8,21 +8,21 @@
 <body>
 <div align="center">
     <h2>New Remind</h2>
-    <form th:action="@{/register}" th:object="${user}" method="post">
-        <p>Username: <label>
-            <input type="text" th:field="*{title}" />
+    <form th:action="@{/registration}" th:object="${user}" method="post">
+        <p>Name: <label>
+            <input type="text" th:field="*{name}" />
         </label></p>
         <p>Email: <label>
-            <input type="text" th:field="*{description}" />
+            <input type="text" th:field="*{email}" />
         </label></p>
         <p>Login: <label>
-            <input type="text" th:field="*{remind}" />
+            <input type="text" th:field="*{username}" />
         </label></p>
         <p>Password: <label>
-            <input type="text" th:field="*{remind}" />
+            <input type="password" th:field="*{password}" />
         </label></p>
         <p>Telegram ID: <label>
-            <input type="number" th:field="*{remind}" />
+            <input type="text" th:field="*{telegramId}" />
         </label></p>
         <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
     </form>
