@@ -46,6 +46,7 @@ public class SecurityConfig {
 
 //                .formLogin(AbstractAuthenticationFilterConfigurer::permitAll)
                 .formLogin(form -> form
+//                        .loginPage("/login")
                         .loginPage("/login")
                         .defaultSuccessUrl("/index", true)
                         .permitAll())

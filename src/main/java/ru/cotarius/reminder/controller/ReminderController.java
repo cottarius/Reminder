@@ -22,8 +22,9 @@ public class ReminderController {
     private final ReminderService reminderService;
     private final UserService userService;
 
-    @RequestMapping(value = "/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
-    @Transactional
+//    @RequestMapping(value = "/delete/{id}", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteReminder(@PathVariable long id, Model model) {
         Reminder reminder = reminderService.findById(id);
         reminderService.delete(reminder);
@@ -79,13 +80,17 @@ public class ReminderController {
         return "redirect:/index";
     }
 
-//    @PostMapping("/new_remind")
-//    public String addRemind(@ModelAttribute("reminder") Reminder reminder, Principal principal) {
-//        User user = userService.findByUsername(principal.getName());
-//        reminder.setUser(user);
-//        reminderService.save(reminder);
-//        return "redirect:/index";
-//    }
+    @GetMapping("/user/new")
+    public String newUserForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "registration";
+    }
 
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    public String register(@ModelAttribute("user") User user, Model model) {
+        userService.saveUser(user);
+        return "/login";
+    }
 
 }
