@@ -1,5 +1,6 @@
 spring:
   application:
+    botToken: 5982691328:AAFalCNB5LRCPDU-nRxL_-RGxK3tnl5Sz3o
     name: reminder
 
   datasource:
